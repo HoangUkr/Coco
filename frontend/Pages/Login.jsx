@@ -10,6 +10,7 @@ const Login = ({ setLoggedIn }) => {
   const handleLogin = (e) => {
     e.preventDefault(); // Logic for authenticating the user can be added here 
     if (username === 'testuser' && password === 'password') { 
+        debugger;
         setLoggedIn(true); 
         navigate('/'); 
     } 

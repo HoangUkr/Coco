@@ -12,6 +12,7 @@ import Login from '../Pages/Login';
 import Registration from '../Pages/Registration';
 
 function App() {
+  debugger;
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <div>
@@ -23,7 +24,7 @@ function App() {
         <Route path="/cart" element={<Cart />} /> 
         <Route path="/profile" element={<Profile />} /> 
         <Route path="/signin" element={<Login setLoggedIn={setIsLoggedIn}/>} />
-        <Route path="/register" element={<Registration />} />
+        <Route path="/register" element={<Registration isLoggedIn={isLoggedIn}/>} />
       </Routes>
     </div>
   )
