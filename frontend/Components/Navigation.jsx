@@ -26,6 +26,9 @@ const Navigation = ({isLoggedIn, setIsLoggedIn}) => {
             <LinkContainer to="/cart">
               <Nav.Link><FaShoppingCart className="nav-icon" />Shop Basket</Nav.Link>
             </LinkContainer>
+            <LinkContainer to="/add-products">
+              <Nav.Link>Add Products</Nav.Link>
+            </LinkContainer>
           </Nav>
           <Nav className="ms-auto">
             {isLoggedIn ? (

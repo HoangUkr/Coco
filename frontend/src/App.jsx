@@ -10,10 +10,13 @@ import Profile from '../Pages/Profile';
 import Navigation from '../Components/Navigation'
 import Login from '../Pages/Login';
 import Registration from '../Pages/Registration';
+import AddProduct from '../Pages/AddProduct';
+import ProductDetail from '../Pages/ProductDetail';
 
 function App() {
   debugger;
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   return (
     <div>
       <Navigation isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
@@ -25,6 +28,8 @@ function App() {
         <Route path="/profile" element={<Profile />} /> 
         <Route path="/signin" element={<Login setLoggedIn={setIsLoggedIn}/>} />
         <Route path="/register" element={<Registration isLoggedIn={isLoggedIn}/>} />
+        <Route path="/add-products" element={<AddProduct />} /> 
+        <Route path="/product" element={<ProductDetail />} /> 
       </Routes>
     </div>
   )
