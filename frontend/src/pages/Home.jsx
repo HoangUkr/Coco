@@ -1,5 +1,5 @@
 import React from "react";
-import carousel1 from "../assets/images/carousel-1.jpg"; 
+import carousel1 from "../assets/images/carousel-1.jpg";
 import carousel2 from "../assets/images/carousel-2.jpg";
 
 const Home = () => {

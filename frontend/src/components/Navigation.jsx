@@ -23,13 +23,13 @@ const Navigation = () => {
           id="navbarCollapse"
         >
           <div className="navbar-nav ml-auto p-4">
-            <a href="#" className="nav-item nav-link active">
+            <a href="/" className="nav-item nav-link active">
               Home
             </a>
-            <a href="#" className="nav-item nav-link">
+            <a href="/about" className="nav-item nav-link">
               About
             </a>
-            <a href="#" className="nav-item nav-link">
+            <a href="/service" className="nav-item nav-link">
               Service
             </a>
             <a href="#" className="nav-item nav-link">
@@ -52,7 +52,7 @@ const Navigation = () => {
                 </a>
               </div>
             </div>
-            <a href="contact.html" className="nav-item nav-link">
+            <a href="/contact" className="nav-item nav-link">
               Contact
             </a>
           </div>
