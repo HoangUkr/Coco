@@ -32,8 +32,17 @@ const Navigation = () => {
             <a href="/service" className="nav-item nav-link">
               Service
             </a>
-            <a href="#" className="nav-item nav-link">
+            <a href="/menu" className="nav-item nav-link">
               Menu
+            </a>
+            <a href="/cart" className="nav-item nav-link">
+              Cart
+            </a>
+            <a href="/contact" className="nav-item nav-link">
+              Contact
+            </a>
+            <a href="/login" className="nav-item nav-link">
+              Login
             </a>
             <div className="nav-item dropdown">
               <a
@@ -41,20 +50,17 @@ const Navigation = () => {
                 className="nav-link dropdown-toggle"
                 data-toggle="dropdown"
               >
-                Pages
+                Admin
               </a>
               <div className="dropdown-menu text-capitalize">
-                <a href="#" className="dropdown-item">
-                  Reservation
+                <a href="addproduct" className="dropdown-item">
+                  Add Product
                 </a>
-                <a href="#" className="dropdown-item">
-                  Testimonial
+                <a href="vieworder" className="dropdown-item">
+                  View Order
                 </a>
               </div>
             </div>
-            <a href="/contact" className="nav-item nav-link">
-              Contact
-            </a>
           </div>
         </div>
       </nav>
