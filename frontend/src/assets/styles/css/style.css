@@ -1924,10 +1924,23 @@ pre code {
 }
 
 input[type="date"].form-control,
+input[type="text"].form-control,
+input[type="password"].form-control,
 input[type="time"].form-control,
 input[type="datetime-local"].form-control,
 input[type="month"].form-control {
   appearance: none;
+}
+
+input[type="text"].form-control,
+input[type="password"].form-control {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.authForm {
+  border: 1px solid rgba(218, 159, 91, 0.25);
+  width: 100%
 }
 
 select.form-control:focus::-ms-value {
@@ -3337,6 +3350,9 @@ input[type="button"].btn-block {
   clip: rect(0, 0, 0, 0);
   pointer-events: none;
 }
+
+/* SDropdown */
+
 
 .input-group {
   position: relative;

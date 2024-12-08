@@ -2,7 +2,71 @@ import React from 'react'
 
 const ViewOrder = () => {
   return (
-    <div>ViewOrder</div>
+    <div>
+      <div className="container-fluid page-header mb-5 position-relative overlay-bottom">
+        <div
+          className="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5"
+          style={{ minHeight: 400 }}
+        >
+          <h1 className="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">
+            View Order
+          </h1>
+          <div className="d-inline-flex mb-lg-5">
+            <p className="m-0 text-white">
+              <a className="text-white" href="/">
+                Home
+              </a>
+            </p>
+            <p className="m-0 text-white px-2">/</p>
+            <p className="m-0 text-white">View Order</p>
+          </div>
+        </div>
+      </div>
+      <div className="container-fluid pt-5">
+        <div className="container">
+        <table className="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Customer</th>
+                <th scope="col">Product List</th>
+                <th scope="col">Order Date</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Lorem 1</td>
+                <td>
+                  Lorem 1
+                </td>
+                <td>1</td>
+                <td>5€</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Lorem 2</td>
+                <td>
+                  Lorem 2
+                </td>
+                <td>1</td>
+                <td>5€</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Lorem 3</td>
+                <td>
+                  Lorem 3
+                </td>
+                <td>1</td>
+                <td>5€</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   )
 }
 

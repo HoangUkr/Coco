@@ -16,6 +16,7 @@ import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import AddProduct from "./pages/AddProduct";
 import ViewOrder from "./pages/ViewOrder";
+import Registration from "./pages/Registration";
 
 function App_alt() {
   return (
@@ -29,6 +30,7 @@ function App_alt() {
         <Route path="/menu" element={<Menu />} /> 
         <Route path="/cart" element={<Cart />} /> 
         <Route path="/login" element={<Login />} /> 
+        <Route path="/registration" element={<Registration />} /> 
         <Route path="/addproduct" element={<AddProduct />} /> 
         <Route path="/vieworder" element={<ViewOrder />} /> 
       </Routes>

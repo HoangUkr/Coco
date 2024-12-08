@@ -22,6 +22,46 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <div className="container mt-5">
+        <div className="container d-flex align-items-center justify-content-center pt-0 pt-lg-5">
+          <form className="authForm p-5">
+            <div className="input-group">
+              <label for="inputLogin">Login Name: </label>
+              <br />
+              <input
+                type="text"
+                id="inputLogin"
+                aria-describedby="loginHelp"
+                placeholder="Enter login"
+                style={{ width: "100%" }}
+              ></input>
+              <small id="loginHelp" className="form-text text-muted">
+                We'll never share your email with anyone else.
+              </small>
+            </div>
+            <div className="input-group">
+              <label for="inputPassword">Password: </label>
+              <br />
+              <input
+                type="password"
+                id="inputPassword"
+                aria-describedby="passwordHelp"
+                style={{ width: "100%" }}
+                placeholder="Enter Pasword"
+              ></input>
+            </div>
+            <div className="form-group">
+              <a href="/registration">
+                <small>Don't you have account?</small>
+              </a>
+              <br />
+              <button type="submit" className="btn btn-primary mt-2">
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
