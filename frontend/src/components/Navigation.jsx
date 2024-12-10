@@ -4,7 +4,7 @@ const Navigation = () => {
   return (
     <div className="container-fluid p-0 nav-bar">
       <nav className="navbar navbar-expand-lg bg-none navbar-dark py-3">
-        <a href="#" className="navbar-brand px-lg-4 m-0">
+        <a href="/" className="navbar-brand px-lg-4 m-0">
           <h1 className="m-0 display-4 text-uppercase text-white">
             Sweet Coco Store
           </h1>

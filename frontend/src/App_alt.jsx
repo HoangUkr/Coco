@@ -17,6 +17,7 @@ import Login from "./pages/Login";
 import AddProduct from "./pages/AddProduct";
 import ViewOrder from "./pages/ViewOrder";
 import Registration from "./pages/Registration";
+import Page404 from "./pages/Page404";
 
 function App_alt() {
   return (
@@ -33,6 +34,7 @@ function App_alt() {
         <Route path="/registration" element={<Registration />} /> 
         <Route path="/addproduct" element={<AddProduct />} /> 
         <Route path="/vieworder" element={<ViewOrder />} /> 
+        <Route path="*" element={<Page404 />} />
       </Routes>
       <Footer />
     </div>
