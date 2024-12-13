@@ -41,8 +41,8 @@ class Product(models.Model):
 
 # Order model
 class Order(models.Model):
-    order_id = models.CharField(null=False, max_length=10)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    order_id = models.CharField(null=False, max_length=10, unique=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     price = models.FloatField(null=False, blank=False)
     is_done = models.BooleanField(null=False, default=False)
     delivered_date = models.DateTimeField(null=False)
@@ -69,8 +69,8 @@ class Order(models.Model):
 
 # Order Product model
 class OrderProduct(models.Model):
-    product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
-    order_id = models.ForeignKey(Order, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
 
     class Meta:
