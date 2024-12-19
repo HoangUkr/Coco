@@ -1,6 +1,36 @@
-import React from "react";
+import { useState, React } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+import api from '../api';
+import { ACCESS_TOKEN, REFRESH_TOKEN } from '../constants';
+import LoadingIndicator from '../components/LoadingIndicator';
+
+const Login = ({ setLoggedIn }) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    debugger;
+    setLoading(true);
+    e.preventDefault();
+    try {
+      const result = await api.post('/api/token/', {username, password});
+      localStorage.setItem(ACCESS_TOKEN, result.data.access);
+      localStorage.setItem(REFRESH_TOKEN, result.data.refresh);
+      navigate('/');
+    }
+    catch(error){
+      alert(error);
+    }
+    finally{
+      setLoading(false);
+    }
+  }
+
+
   return (
     <div>
       <div className="container-fluid page-header mb-5 position-relative overlay-bottom">
@@ -24,9 +54,9 @@ const Login = () => {
       </div>
       <div className="container mt-5">
         <div className="container d-flex align-items-center justify-content-center pt-0 pt-lg-5">
-          <form className="authForm p-5">
+          <form onSubmit={handleSubmit} className="authForm p-5">
             <div className="input-group">
-              <label for="inputLogin">Login Name: </label>
+              <label htmlFor="inputLogin">Login Name: </label>
               <br />
               <input
                 type="text"
@@ -34,13 +64,15 @@ const Login = () => {
                 aria-describedby="loginHelp"
                 placeholder="Enter login"
                 style={{ width: "100%" }}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               ></input>
               <small id="loginHelp" className="form-text text-muted">
                 We'll never share your email with anyone else.
               </small>
             </div>
             <div className="input-group">
-              <label for="inputPassword">Password: </label>
+              <label htmlFor="inputPassword">Password: </label>
               <br />
               <input
                 type="password"
@@ -48,6 +80,8 @@ const Login = () => {
                 aria-describedby="passwordHelp"
                 style={{ width: "100%" }}
                 placeholder="Enter Pasword"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               ></input>
             </div>
             <div className="form-group">

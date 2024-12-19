@@ -1,5 +1,5 @@
 /* React Modules */
-import React from "react";
+import { useState, React } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 /* Component */
@@ -20,6 +20,7 @@ import Registration from "./pages/Registration";
 import Page404 from "./pages/Page404";
 
 function App_alt() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <div>
       <Navigation />
@@ -30,7 +31,7 @@ function App_alt() {
         <Route path="/service" element={<Service />} /> 
         <Route path="/menu" element={<Menu />} /> 
         <Route path="/cart" element={<Cart />} /> 
-        <Route path="/login" element={<Login />} /> 
+        <Route path="/login" element={<Login setLoggedIn={setIsLoggedIn} />} /> 
         <Route path="/registration" element={<Registration />} /> 
         <Route path="/addproduct" element={<AddProduct />} /> 
         <Route path="/vieworder" element={<ViewOrder />} /> 
