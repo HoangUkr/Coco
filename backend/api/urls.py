@@ -14,12 +14,20 @@ urlpatterns = [
     path('token/refresh/', TokenRefreshView.as_view(), name='Refresh Token'),
     path('api-auth/', include('rest_framework.urls')),
 
+    # Check user role
+    path('check_user_role/', views.check_user_role, name='Check User Role'),
+
     # User API path
     path('user/register/', views.CreateUserView.as_view(), name='User Registration'),
 
     # Product API path
     path('products/', views.ListProductView.as_view(), name='View All Products'),
     path('products/<int:pk>', views.RetrieveProductView.as_view(), name='View Product by Id'),
+    path('product/create/', views.ProductCreateView.as_view(), name='Create Product view'),
+
+    # Category API path
+    path('categories/', views.ListCategoryView.as_view(), name='List Category view'),
+    path('category/create/', views.CategoryCreateView.as_view(), name='Create Category view'),
 
     # Order API path
     path('orders/', views.ListOrderView.as_view(), name='View All Orders'),

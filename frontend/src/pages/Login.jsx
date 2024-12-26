@@ -21,6 +21,7 @@ const Login = ({ setLoggedIn }) => {
       localStorage.setItem(ACCESS_TOKEN, result.data.access);
       localStorage.setItem(REFRESH_TOKEN, result.data.refresh);
       navigate('/');
+      window.location.reload();
     }
     catch(error){
       alert(error);

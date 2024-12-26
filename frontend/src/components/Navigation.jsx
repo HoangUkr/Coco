@@ -1,12 +1,13 @@
 import React from "react";
 
-const Navigation = () => {
+const Navigation = ({ isLoggedIn, isAdmin }) => {
+  debugger;
   return (
     <div className="container-fluid p-0 nav-bar">
       <nav className="navbar navbar-expand-lg bg-none navbar-dark py-3">
         <a href="/" className="navbar-brand px-lg-4 m-0">
           <h1 className="m-0 display-4 text-uppercase text-white">
-            Sweet Coco Store
+            MY COFFEE
           </h1>
         </a>
         <button
@@ -41,26 +42,36 @@ const Navigation = () => {
             <a href="/contact" className="nav-item nav-link">
               Contact
             </a>
-            <a href="/login" className="nav-item nav-link">
-              Login
-            </a>
-            <div className="nav-item dropdown">
-              <a
-                href="#"
-                className="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-              >
-                Admin
+            {!isLoggedIn ? (
+              <a href="/login" className="nav-item nav-link">
+                Login
               </a>
-              <div className="dropdown-menu text-capitalize">
-                <a href="addproduct" className="dropdown-item">
-                  Add Product
+            ) : (
+              <a href="/logout" className="nav-item nav-link">
+                Logout
+              </a>
+            )}
+            {isAdmin && isLoggedIn ? (
+              <div className="nav-item dropdown">
+                <a
+                  href="#"
+                  className="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                >
+                  Admin
                 </a>
-                <a href="vieworder" className="dropdown-item">
-                  View Order
-                </a>
+                <div className="dropdown-menu text-capitalize">
+                  <a href="addproduct" className="dropdown-item">
+                    Add Product
+                  </a>
+                  <a href="vieworder" className="dropdown-item">
+                    View Order
+                  </a>
+                </div>
               </div>
-            </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </nav>

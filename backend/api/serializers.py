@@ -26,7 +26,7 @@ class CategorySerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ['id', 'product_name', 'product_price', 'category', 'description']
+        fields = ['id', 'product_name', 'product_price', 'category', 'description', 'product_image']
     
     def create(self, validated_data):
         return Product.objects.create(**validated_data)
@@ -36,6 +36,7 @@ class ProductSerializer(serializers.ModelSerializer):
         instance.product_price = validated_data.get('product_price', instance.product_price)
         instance.category = validated_data.get('category', instance.category)
         instance.description = validated_data.get('description', instance.description)
+        instance.product_image = validated_data.get('product_image', instance.product_image)
         instance.save()
         return instance
 
@@ -43,7 +44,7 @@ class ProductSerializer(serializers.ModelSerializer):
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
-        fields = ['id', 'order_id', 'user', 'price', 'is_done', 'delivered_date']
+        fields = ['id', 'order_id', 'user', 'price', 'is_done', 'is_check_out', 'delivered_date']
     
     def create(self, validated_data):
         return Order.objects.create(**validated_data)
@@ -53,6 +54,7 @@ class OrderSerializer(serializers.ModelSerializer):
         instance.user = validated_data.get('user', instance.user)
         instance.price = validated_data.get('price', instance.price)
         instance.is_done = validated_data.get('is_done', instance.is_done)
+        instance.is_check_out = validated_data.get('is_check_out', instance.is_check_out)
         instance.delivered_date = validated_data.get('delivered_date', instance.delivered_date)
         instance.save()
         return instance

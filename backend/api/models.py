@@ -32,6 +32,7 @@ class Product(models.Model):
     product_price = models.FloatField(null=False, blank=False)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     description = models.CharField(null=True, max_length=255)
+    product_image = models.ImageField(upload_to='products/', null=True, blank=True)
 
     class Meta:
         ordering = ['id', 'product_name']
@@ -41,9 +42,10 @@ class Product(models.Model):
 
 # Order model
 class Order(models.Model):
-    order_id = models.CharField(null=False, max_length=10, unique=True)
+    order_id = models.CharField(null=True, max_length=10, unique=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     price = models.FloatField(null=False, blank=False)
+    is_check_out = models.BooleanField(null=False, default=False)
     is_done = models.BooleanField(null=False, default=False)
     delivered_date = models.DateTimeField(null=False)
 
