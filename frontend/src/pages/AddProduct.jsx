@@ -118,6 +118,7 @@ const AddProduct = () => {
                 id="productPrice"
                 aria-describedby="productPriceHelp"
                 placeholder="Enter product price"
+                step="0.01"
                 style={{ width: "100%" }}
                 {...register("product_price", { required: true })}
               ></input>
