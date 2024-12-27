@@ -1,11 +1,21 @@
-import { useState, React } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, React } from "react";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
-import api from '../api';
-import { ACCESS_TOKEN, REFRESH_TOKEN } from '../constants';
-import LoadingIndicator from '../components/LoadingIndicator';
+import api from "../api";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
+import LoadingIndicator from "../components/LoadingIndicator";
 
 const Login = ({ setLoggedIn }) => {
+  const mySwal = Swal.mixin({
+    customClass: {
+      confirmButton: "btn btn-primary",
+      cancelButton: "btn btn-secondary",
+    },
+    buttonsStyling: false,
+  });
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -17,20 +27,22 @@ const Login = ({ setLoggedIn }) => {
     setLoading(true);
     e.preventDefault();
     try {
-      const result = await api.post('/api/token/', {username, password});
+      const result = await api.post("/api/token/", { username, password });
       localStorage.setItem(ACCESS_TOKEN, result.data.access);
       localStorage.setItem(REFRESH_TOKEN, result.data.refresh);
-      navigate('/');
+      navigate("/");
       window.location.reload();
-    }
-    catch(error){
-      alert(error);
-    }
-    finally{
+    } catch (error) {
+      mySwal.fire({
+        title: "Error",
+        text: "Username or password are not correct.",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+    } finally {
       setLoading(false);
     }
-  }
-
+  };
 
   return (
     <div>
