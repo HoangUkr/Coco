@@ -1,4 +1,6 @@
 from django.urls import include, path
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 # Import from rest_framework
 from rest_framework.urlpatterns import format_suffix_patterns
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
@@ -37,3 +39,4 @@ urlpatterns = [
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
+urlpatterns += staticfiles_urlpatterns()
